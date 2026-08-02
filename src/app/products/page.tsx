@@ -1,4 +1,4 @@
-// APIから返される商品データの方を定義
+// APIから返される商品データの型を定義
 interface Product {
   id: number;
   name: string;
@@ -14,7 +14,7 @@ async function getProducts(): Promise<Product[]> {
   console.log(`Fetching data from: ${url}`); // デバッグ用にURLをログ出力
 
   const res = await fetch(url, {
-    // SSRではキャッシュが協力に効くため、開発中はキャッシュを無効にする
+    // SSRではキャッシュが強力に効くため、開発中はキャッシュを無効にする
     cache: "no-store",
   });
 
@@ -33,7 +33,7 @@ export default async function ProductPage() {
   return (
     <main className="container mx-auto p-8">
       <h1 className="text-3xl font-bold mb-8">商品一覧</h1>
-      {/* 取得したデータをとりあえずJSON形式機で表示してみる */}
+      {/* 取得したデータをとりあえずJSON形式で表示してみる */}
       <pre className="bg-gray-100 p-4 rounded-b-lg">
         {JSON.stringify(products, null, 2)}
       </pre>
