@@ -27,14 +27,14 @@ async function getProducts(): Promise<Product[]> {
 }
 
 // 商品一覧ページのコンポーネント (Server Component)
-export default async function ProductPage() {
+export default async function ProductsPage() {
   const products = await getProducts();
 
   return (
     <main className="container mx-auto p-8">
       <h1 className="text-3xl font-bold mb-8">商品一覧</h1>
       {/* 取得したデータをとりあえずJSON形式で表示してみる */}
-      <pre className="bg-gray-100 p-4 rounded-b-lg">
+      <pre className="bg-gray-100 p-4 rounded-lg whitespace-pre-wrap">
         {JSON.stringify(products, null, 2)}
       </pre>
     </main>
