@@ -24,6 +24,7 @@ const handler = NextAuth({
             }),
           },
         );
+        console.log("login status:", res.status);
 
         if (!res.ok) {
           return null;
@@ -31,7 +32,7 @@ const handler = NextAuth({
 
         // ユーザー情報を取得
         const userRes = await fetch(
-          `${process.env.NEXT_PUBLIC_API_BASE_URL}/user`,
+          `${process.env.NEXT_PUBLIC_API_BASE_URL}/api/user`,
           {
             headers: {
               // ログインリクエストのレスポンスからCookieヘッダーを取得して設定

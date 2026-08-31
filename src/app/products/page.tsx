@@ -10,7 +10,7 @@ interface Product {
 
 // 商品データを取得するための非同期関数
 async function getProducts(): Promise<Product[]> {
-  const url = `${process.env.NEXT_PUBLIC_API_BASE_URL}/products`;
+  const url = `${process.env.NEXT_PUBLIC_API_BASE_URL}/api/products`;
 
   const res = await fetch(url, {
     // SSRではキャッシュが強力に効くため、開発中はキャッシュを無効にする
